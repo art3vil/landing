@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Landing() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +28,7 @@ export default function Landing() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-between">
             <a
               href="#"
@@ -37,6 +38,7 @@ export default function Landing() {
             >
               BotSystems
             </a>
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
               <a
                 href="#problems"
@@ -71,7 +73,79 @@ export default function Landing() {
                 Контакты
               </a>
             </div>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden p-2 transition ${
+                isScrolled ? "text-gray-900" : "text-white"
+              }`}
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden mt-4 pb-4 border-t border-gray-200/20"
+            >
+              <div className="flex flex-col gap-4 pt-4">
+                <a
+                  href="#problems"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition hover:text-blue-600 ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  Проблемы
+                </a>
+                <a
+                  href="#solutions"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition hover:text-blue-600 ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  Решения
+                </a>
+                <a
+                  href="#portfolio"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition hover:text-blue-600 ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  Работы
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition hover:text-blue-600 ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  Контакты
+                </a>
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
       {/* HERO */}
@@ -91,10 +165,10 @@ export default function Landing() {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight text-white">
               Автоматизация бизнес‑процессов c помощью телеграм ботов и AI Агентов.
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-10 leading-relaxed">
                Разрабатываем AI-агентов: умные помощники для вашего бизнеса. От Mvp до запуска за 7 дней.
             </p>
             <a
