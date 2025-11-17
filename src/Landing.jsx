@@ -82,7 +82,7 @@ export default function Landing() {
         transition={{ duration: 0.6 }}
         className="w-full px-8 pt-32 pb-40 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/background.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}background.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -311,7 +311,7 @@ export default function Landing() {
       <div
         className="w-full relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/background2.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}background2.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
