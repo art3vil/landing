@@ -104,42 +104,34 @@ export default function Landing() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden mt-4 pb-4 border-t border-gray-200/20"
+              className="md:hidden mt-4 pb-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg border border-gray-200"
             >
-              <div className="flex flex-col gap-4 pt-4">
+              <div className="flex flex-col gap-4 pt-4 px-4">
                 <a
                   href="#problems"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition hover:text-blue-600 ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  }`}
+                  className="text-gray-900 transition hover:text-blue-600 font-medium"
                 >
                   Проблемы
                 </a>
                 <a
                   href="#solutions"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition hover:text-blue-600 ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  }`}
+                  className="text-gray-900 transition hover:text-blue-600 font-medium"
                 >
                   Решения
                 </a>
                 <a
                   href="#portfolio"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition hover:text-blue-600 ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  }`}
+                  className="text-gray-900 transition hover:text-blue-600 font-medium"
                 >
                   Работы
                 </a>
                 <a
                   href="#contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition hover:text-blue-600 ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  }`}
+                  className="text-gray-900 transition hover:text-blue-600 font-medium"
                 >
                   Контакты
                 </a>
